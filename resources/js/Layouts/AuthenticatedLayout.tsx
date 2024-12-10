@@ -27,32 +27,35 @@ export default function Authenticated({
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
-                                >
-                                    Home
-                                </NavLink>
-                            </div>
+                                    <NavLink
+                                        href={route('dashboard')}
+                                        active={route().current('dashboard')}
+                                    >
+                                        Home
+                                    </NavLink>
+                                </div>
 
+                            {user.role === 'HR' && (
+                                <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                    <NavLink
+                                        href={route('createJob')}
+                                        active={route().current('createJob')}
+                                    >
+                                        Create a job
+                                    </NavLink>
+                                </div>
+                            )}
 
-                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
-                                >
-                                    Create a job
-                                </NavLink>
-                            </div>
-
-                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
-                                >
-                                    Find a job
-                                </NavLink>
-                            </div>
+                            {user.role === 'Applicant' && (
+                                <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                    <NavLink
+                                        href={route('findJob')}
+                                        active={route().current('findJob')}
+                                    >
+                                        Find a job
+                                    </NavLink>
+                                </div>
+                            )}
                         </div>
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
