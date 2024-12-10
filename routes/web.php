@@ -6,6 +6,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\JobPostController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -35,4 +36,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/findJob', [JobController::class, 'find'])->name('findJob');
 });
 
+Route::middleware(['auth'])->group(function () {
+    // Job post creation route
+    Route::get('/job-posts/create', [JobPostController::class, 'create'])->name('job-posts.create');
+    Route::post('/job-posts', [JobPostController::class, 'store'])->name('job-posts.store');
+});
 require __DIR__.'/auth.php';
