@@ -2,14 +2,15 @@
   "compilerOptions": {
     "allowJs": true,
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "jsx": "react-jsx",
     "strict": true,
     "isolatedModules": true,
-    "target": "ESNext",
+    "target": "ES6",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types"],
     "noEmit": true,
     "paths": {
       "@/*": ["./resources/js/*"],
